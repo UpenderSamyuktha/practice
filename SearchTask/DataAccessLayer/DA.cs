@@ -23,6 +23,7 @@ namespace SearchTask.DataAccessLayer
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
+            //Loop for fetch data
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 ctlist.Add(new City1 { CityId = Convert.ToInt32(dr["CityId"]), CityName = dr["CityName"].ToString() });
