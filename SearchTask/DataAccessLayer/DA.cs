@@ -19,6 +19,7 @@ namespace SearchTask.DataAccessLayer
             SqlCommand cmd = new SqlCommand("select * from City where StateId=@StateId", con);
             cmd.Parameters.AddWithValue("StateId", @StateId);
             //SqlDataReader dr = cmd.ExecuteReader();
+            // Method for citybind..!
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
