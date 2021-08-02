@@ -31,7 +31,7 @@ namespace SearchTask.DataAccessLayer
 
 
             //ctlist = da.Cities.Where(x=>x.StateId==id).ToList();
-
+            //A man with golden gun...!
             return ctlist;
         }
 
