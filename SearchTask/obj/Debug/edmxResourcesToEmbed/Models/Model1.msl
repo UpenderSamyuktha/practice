@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OutPatientTrackingSystemModelStoreContainer" CdmEntityContainer="OutPatientTrackingSystemEntities">
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="OutPatientTrackingSystemModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="Department_id" ColumnName="Department_id" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hospitals">
+      <EntityTypeMapping TypeName="OutPatientTrackingSystemModel.hospital">
+        <MappingFragment StoreEntitySet="hospital">
+          <ScalarProperty Name="hs_id" ColumnName="hs_id" />
+          <ScalarProperty Name="hs_name" ColumnName="hs_name" />
+          <ScalarProperty Name="hs_prefix" ColumnName="hs_prefix" />
+          <ScalarProperty Name="hs_suffix" ColumnName="hs_suffix" />
+          <ScalarProperty Name="hs_patient_sequence" ColumnName="hs_patient_sequence" />
+          <ScalarProperty Name="hs_nextpatient_id" ColumnName="hs_nextpatient_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="OutPatientTrackingSystemModel.Patient">
+        <MappingFragment StoreEntitySet="Patient">
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="IdProof" ColumnName="IdProof" />
+          <ScalarProperty Name="ProofNumber" ColumnName="ProofNumber" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="hs_name" ColumnName="hs_name" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="PatientNumber" ColumnName="PatientNumber" />
+          <ScalarProperty Name="OnCreated" ColumnName="OnCreated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="OnUpdated" ColumnName="OnUpdated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

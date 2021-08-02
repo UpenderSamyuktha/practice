@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<br />
+<div class="container">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glypicon-search"></i></span>
+            <input type="text" id="Search" placeholder="Search" class="form-control" />
+        </div>
+    </div>
+</div>
+<a href='@Url.Action("Create","Home")'>Create new Employee</a>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var EmpTable = $("#EmpTable");
+        function Contains(text_1, text_2) {
+            if (text_1.indexOf(text_2) != -1)
+
+                return true;
+        }
+
+
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:23272/api/Patients/GetAllPatients",
+            dataType: "json",
+            success: function (data) {
+                EmpTable.empty();
+                EmpTable.append("<tr><th>PatientNumber</th><th>PatientName</th><th>MobileNumber</th><th>Gender</th><th>ProofNumber</th><th>BloodGroup</th><th>Last Visiting Date</th></tr>");
+
+                $.each(data, function (index, item) {
+                    EmpTable.append("<tr><td>" + item.PatientNumber + "</td><td>" + item.Name + "</td><td>" + item.MobileNumber + "</td><td>" + item.Gender + "</td><td>" + item.ProofNumber + "</td><td>" + item.BloodGroup + "</td><td>" + item.Date + "</td></tr>");
+                });
+            },
+            error: function (XHR) {
+                var ResponseData = JSON.parse(XHR.responseText);
+                alert(XHR.status + " : " + ResponseData.Message);
+            }
+        });
+        $("#Search").keyup(function () {
+            var searchText = $("#Search").val().toLowerCase();
+            $("tr").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+                    $(this).hide();
+                }
+                else {
+
+                    $(this).show();
+                }
+
+            });
+        });
+    });
+</script>
+<h2 style="color:dodgerblue;">Patients List</h2>
+
+<div>
+
+    <table id="EmpTable" class="table table-condensed" style="border:dashed">
+    </table>
+</div>
+    

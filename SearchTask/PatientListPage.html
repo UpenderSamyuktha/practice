@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var EmpTable = $("#EmpTable");
+
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:23272/api/Patients/GetAllPatients",
+            dataType: "json",
+            success: function (data) {
+                EmpTable.empty();
+                EmpTable.append("<tr><th>PatientNumber</th><th>PatientName</th><th>MobileNumber</th><th>Gender</th><th>ProofNumber</th><th>BloodGroup</th><th>Last Visiting Date</th></tr>");
+                    
+                $.each(data, function (index, item) {
+                    EmpTable.append("<tr><td>"+item.PatientNumber+"</td><td>"+item.Name+"</td><td>"+item.MobileNumber+"</td><td>"+item.Gender+"</td><td>"+item.ProofNumber+"</td><td>"+item.BloodGroup+"</td><td>"+item.Date+"</td></tr>");
+                });
+            },
+            error: function (XHR) {
+                var ResponseData = JSON.parse(XHR.responseText);
+                alert(XHR.status + " : " + ResponseData.Message);
+            }
+        });
+    });
+</script>
+<h2>Index</h2>
+
+<div>
+    <a href='@Url.Action("Create","Home")'>Create new Employee</a>
+    <table id="EmpTable" class="table table-condensed">
+    </table>
+</div>

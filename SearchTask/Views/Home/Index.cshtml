@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SearchTask.Models.Patient>
+
+<br /><br />
+
+<div class="container">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glypicon-search"></i></span>
+            <input type="text"id="Search" placeholder="Search" class="form-control" />
+        </div>
+    </div>
+</div>
+<table class="table table-striped">
+   <thead>
+       <tr>
+           <th>PatientNumber</th>
+           <th>PatientName</th>
+           <th>MobileNumber</th>
+           <th>Proofnumber</th>
+           <th>BloodGroup</th>
+       </tr>
+   </thead>
+    <tbody>
+        @foreach(var item in Model)
+        { 
+            <tr class="Search">
+                <td>@item.PatientNumber</td>
+                <td>@item.Name</td>
+                <td>@item.MobileNumber</td>
+                <td>@item.ProofNumber</td>
+                <td>@item.BloodGroup</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_1, text_2) {
+            if (text_1.indexOf(text_2) != -1)
+
+                return true;
+        }
+       $("#Search").keyup(function () {
+            var searchText = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+                    $(this).hide();
+                }
+                else {
+
+                    $(this).show();
+                }
+
+            });
+        });
+    });
+</script>
